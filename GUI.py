@@ -29,6 +29,19 @@ def Classify():
     img=cv2.imread(img_path)
     model_import=tf.keras.models.load_model('Saved_Model')
     img.resize((224,224,3))
-    print(model_import.predict(img[None]))
+    prediction=model_import.predict(img[None])
+    prediction_list=prediction[0].tolist()
+    for i in range(len(prediction_list)):
+        prediction_list[i]=float(prediction_list[i])*100
+    names_list=['Black-grass','Charlock','Cleavers','Common Chickweed','Common Wheat','Fat Hen','Loose Silky-bent','Maize','Scentless Mayweed','Shepherds Purse','Small-flowered Cranesbill','Sugar Beet']
+    join_list=zip(names_list,prediction_list)
+    sorted_list=sorted(join_list,reverse=True,key=lambda x:x[1])
+    str_1="1) "+sorted_list[0][0]+" - "+str(sorted_list[0][1])+"%"
+    str_2="2) "+sorted_list[1][0]+" - "+str(sorted_list[1][1])+"%"
+    str_3="3) "+sorted_list[2][0]+" - "+str(sorted_list[2][1])+"%"
+    top_label=Label(root,text='The top 3 predictions are:',font='arial 12 bold').place(x=25,y=550)
+    top1_label=Label(root,text=str_1,font='arial 12').place(x=40,y=580)
+    top2_label=Label(root,text=str_2,font='arial 12').place(x=40,y=605)
+    top3_label=Label(root,text=str_3,font='arial 12').place(x=40,y=630)
 classify_button=Button(root,text='Classify Image',bd=3,bg='cadet blue',fg='white',command=Classify).place(x=600,y=491)
 root.mainloop()
