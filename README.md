@@ -23,6 +23,10 @@ Current Training Accuracy | Current Validation Accuracy
 ------------------------- | ---------------------------
 90.43% | 86.30%
 
+Current Training Loss | Current Validation Loss
+--------------------- | -----------------------
+0.2422 | 0.4068
+
 To run the code and classify your image, copy the code from GUI.py and download Saved_Model folder from the Google Drive link at the end of this README.md file. Note that the python file and the Saved_Model folder must belong to the same directory.
 
 Link to the Saved_Model folder - https://drive.google.com/drive/folders/1ddCXen9sAn-xsIUTgo0TjdOnzrYJEt1m?usp=sharing
