@@ -1,7 +1,8 @@
 from tkinter import *
-import PIL as p
+from PIL import Image
 import tensorflow as tf
 import numpy as np
+import cv2
 root=Tk()
 root.title("Image Classification using Deep Learning")
 root.geometry("1360x1000")
@@ -25,8 +26,9 @@ enter_entry=Entry(root,width=50,bd=3,relief='sunken')
 enter_entry.place(x=280,y=495)
 def Classify():
     img_path=enter_entry.get()
-    #img=ptk.PhotoImage(p.Image.open(img_path))    #Sample image to test - PlantSeedlings\plant-seedlings-final\test\00c47e980.png
-    #img=tf.keras.preprocessing.image.load_img(img_path)
-    model_import=tf.keras.models.load_model('Saved_Model_Backup')
+    img=cv2.imread(img_path)
+    model_import=tf.keras.models.load_model('Saved_Model')
+    img.resize((224,224,3))
+    print(model_import.predict(img[None]))
 classify_button=Button(root,text='Classify Image',bd=3,bg='cadet blue',fg='white',command=Classify).place(x=600,y=491)
 root.mainloop()
