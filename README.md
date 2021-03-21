@@ -1,6 +1,11 @@
 # Plant-Seedlings-Classification-using-Deep-Learning
 ## Final Project of Computer Vision with Deep Learning PESU-I/O
 
+### Team Members
+* Sujith Bonthala
+* Mohit Venkatesh
+* Ashish A Iyer
+
 We have taken a Plant Seedlings Classification dataset that classifies 12 different varieties of plant seedlings. They are as follows:
 * Black-grass
 * Charlock
