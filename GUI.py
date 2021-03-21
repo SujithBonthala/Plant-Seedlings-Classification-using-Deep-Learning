@@ -29,7 +29,9 @@ def Classify():
     img=cv2.imread(img_path)
     model_import=tf.keras.models.load_model('Saved_Model')
     img.resize((224,224,3))
-    prediction=model_import.predict(img[None])
+    img=np.array(img).astype('float32')/255
+    img=np.expand_dims(img,axis=0)
+    prediction=model_import.predict(img)
     prediction_list=prediction[0].tolist()
     for i in range(len(prediction_list)):
         prediction_list[i]=float(prediction_list[i])*100
