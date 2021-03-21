@@ -1,5 +1,5 @@
 # Plant-Seedlings-Classification-using-Deep-Learning
-Final Project of Computer Vision with Deep Learning PESU-I/O
+## Final Project of Computer Vision with Deep Learning PESU-I/O
 
 We have taken a Plant Seedlings Classification dataset that classifies 12 different varieties of plant seedlings. They are as follows:
 * Black-grass
